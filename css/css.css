@@ -1,0 +1,2552 @@
+/* Mobile color swatches styling (moved from index.html) */
+.lumina-mobile-color-options {
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+  margin: 32px 0;
+  flex-wrap: wrap;
+}
+.lumina-mobile-color-swatch {
+  width: 70px;
+  height: 38px;
+  border-radius: 32px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.18);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
+}
+.lumina-mobile-color-swatch.active {
+  outline: 2px solid var(--primary-red);
+  outline-offset: 2px;
+  transform: scale(1.08);
+}
+.lumina-mobile-color-name {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  color: #fff;
+  background: rgba(56,4,14,0.85);
+  border-radius: 18px;
+  padding: 2px 10px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+  white-space: nowrap;
+  z-index: 2;
+}
+.lumina-mobile-color-swatch.show-name .lumina-mobile-color-name {
+  opacity: 1;
+}
+/* Mobile introducing description: matches desktop style */
+.lumina-mobile-introducing-description {
+  text-align: center;
+  font-size: 1rem;
+  margin-bottom: 24px;
+  color: var(--dark-text);
+  font-family: var(--font-body);
+}
+.lumina-mobile-divider-bg {
+  width: 100%;
+  height: 80px;
+  background: url('images/Lumina bølge1.png') no-repeat center center;
+  background-size: cover;
+  margin: 0 0 16px 0;
+}
+.lumina-mobile-divider {
+  width: 100%;
+  margin: 24px 0;
+  overflow: hidden;
+}
+.lumina-mobile-divider img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.lumina-mobile-designed-img {
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+  display: block;
+  margin: 0 0 16px auto;
+  margin-left: 40px;
+}
+.lumina-mobile-explore-img {
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+  display: block;
+  margin: 0 0 16px auto;
+  margin-left: -40px;
+}
+.lumina-mobile-hero-divider {
+  width: 100%;
+  position: absolute;
+  top: 400px;
+  left: 0;
+  margin: 0;
+  overflow: visible;
+  z-index: 20;
+  pointer-events: none;
+}
+.lumina-mobile-hero-divider img {
+  width: 100%;
+  height: auto;
+  display: block;
+  position: relative;
+}
+.lumina-mobile-hero-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.lumina-mobile-headline {
+  text-align: center;
+  margin-bottom: 16px;
+}
+.lumina-mobile-hero-text {
+  font-size: 1.3rem;
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  margin: 0;
+}
+.lumina-mobile-learn-btn {
+  background: #c2405c;
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  padding: 10px 32px;
+  font-size: 1rem;
+  font-family: inherit;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  cursor: pointer;
+  text-decoration: none;
+}
+body {
+  font-family: 'Jost', 'Poppins', 'Plus Jakarta Sans', 'Koulen', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+}
+
+/* Mobile introducing headline: primary red */
+.lumina-mobile-introducing-headline {
+  color: #c2405c; 
+  text-align: center;
+  font-size: 1.3rem;
+  margin: 24px 16px 8px 16px;
+  padding: 20px;
+}
+
+.lumina-mobile-overlay {
+  display: none;
+}
+.lumina-mobile-close-icon {
+  width: 44px;
+  height: 44px;
+}
+.lumina-mobile-header {
+  margin-top: 32px;
+}
+.lumina-mobile-carousel-frame {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  overflow: hidden;
+}
+.lumina-mobile-carousel-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+/**
+ * file: css/css.css
+ * purpose: LUMINA Website Styling - Main stylesheet for index.html
+ * Contains: Layout, components, sections, responsive design
+ **/
+
+/* ==================== GLOBAL RESET ==================== */
+/* Remove default browser spacing and set consistent box-sizing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ==================== CSS VARIABLES ==================== */
+/* Define all colors, fonts, and layout values for easy theming */
+:root {
+  /* Brand Colors */
+  --primary-bg: #f9f0eb;          /* Warm beige background */
+  --primary-red: #910000;          /* Deep red accent */
+  --primary-pink: #c2405c;         /* Pink for buttons */
+  --primary-blue: #2420a1;         /* Blue for navigation */
+  --light-pink: #f3c2cc;           /* Light pink accents */
+  --light-blue: #96abcb;           /* Light blue features */
+  --dark-text: #38040e;            /* Dark burgundy text */
+  --black: #000000;
+  --white: #ffffff;
+  
+  /* Typography */
+  --font-logo: 'Zen Tokyo Zoo', cursive;        /* Unique logo font */
+  --font-heading: 'Jost', sans-serif;           /* Headings */
+  --font-body: 'Poppins', sans-serif;           /* Body text */
+  --font-alt: 'Plus Jakarta Sans', sans-serif;  /* Alternative text */
+  --font-koulen: 'Koulen', cursive;             /* Feature titles */
+  
+  /* Layout */
+  --container-max: 1512px;         /* Maximum content width */
+  --container-padding: 104px;      /* Horizontal padding */
+  --section-gap: 80px;             /* Vertical spacing between sections */
+}
+
+/* ==================== BASE STYLES ==================== */
+/* Body: Set default font, background, and prevent horizontal scroll */
+body {
+  font-family: var(--font-body);
+  background-color: var(--primary-bg);
+  color: var(--black);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Images: Responsive by default */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Container: Centered content with max-width */
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+/* ==================== HEADER ==================== */
+/* Fixed header that shows white background on scroll (see js/js.js) */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: transparent;
+  backdrop-filter: none;
+  z-index: 1001;
+  padding: 20px 0;
+  transition: all 0.3s ease;
+}
+
+.header-content {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 120px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 1002;
+}
+
+.logo h1 {
+  font-family: var(--font-logo);
+  font-size: 64px;
+  color: var(--primary-blue);
+  margin: 0;
+  font-weight: 400;
+}
+
+.nav {
+  display: flex;
+  gap: 60px;
+  align-items: center;
+}
+
+.nav-link {
+  font-family: var(--font-body);
+  font-size: 32px;
+  color: var(--primary-blue);
+  text-transform: uppercase;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-weight: 400;
+  position: relative;
+  padding-bottom: 5px;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #1D1A70;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #1D1A70;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(249, 240, 235, 0.95);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  z-index: 999;
+  padding: 167px 0 40px 0;
+}
+
+.dropdown-menu.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-content {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 120px;
+  display: flex;
+  gap: 200px;
+}
+
+.dropdown-column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.dropdown-link {
+  font-family: var(--font-heading);
+  font-size: 32px;
+  font-weight: 500;
+  color: var(--primary-blue);
+  text-decoration: none;
+  transition: color 0.3s;
+  position: relative;
+  padding-bottom: 2px;
+}
+
+.dropdown-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #1D1A70;
+  transition: width 0.3s ease;
+}
+
+.dropdown-link:hover {
+  color: #1D1A70;
+}
+
+.dropdown-link:hover::after {
+  width: 100%;
+}
+
+.dropdown-text {
+  font-family: var(--font-heading);
+  font-size: 32px;
+  font-weight: 500;
+  color: var(--primary-blue);
+  margin: 0;
+}
+
+/* ==================== BASKET OVERLAY ==================== */
+.basket-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 40%;
+    height: 100%;
+    background: #fffaf8;
+    z-index: 2000;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.basket-overlay.active {
+    transform: translateX(0);
+}
+
+.basket-content {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.basket-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px 75px 20px 75px;
+    max-width: 611px;
+}
+
+.basket-title {
+    font-family: 'Jost', sans-serif;
+    font-size: 36px;
+    font-weight: 400;
+    color: #2420A1;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.basket-close {
+    width: 44px;
+    height: 44px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: transform 0.3s;
+}
+
+.basket-close:hover {
+    transform: rotate(90deg);
+}
+
+.basket-close img {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.basket-empty {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.basket-icon {
+    width: 220px;
+    height: 220px;
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.basket-icon img:first-child {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.basket-cross {
+    position: absolute;
+    width: 78.5px;
+    height: 78.5px;
+    right: 4.65px;
+    bottom: -25px;
+}
+
+.basket-empty-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 29.652px;
+    font-weight: 400;
+    color: #000;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.basket-empty-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 23.721px;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.75);
+    text-align: center;
+    max-width: 429.984px;
+    margin: 0;
+}
+
+.basket-filled {
+    width: 100%;
+    height: 100%;
+    padding: 90px 75px 40px 75px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow-y: auto;
+}
+
+.basket-products-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.basket-product {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+    width: 100%;
+}
+
+.basket-product-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 56px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.basket-product-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: 0 1 auto;
+    min-width: 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.basket-product-name {
+    font-family: 'Jost', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: #000;
+    text-transform: uppercase;
+    margin: 0;
+    line-height: 1.1;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.basket-product-color {
+    font-family: 'Jost', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: #000;
+    text-transform: uppercase;
+    margin: 0;
+    line-height: 1.1;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.basket-product-quantity {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-left: auto;
+    flex-shrink: 0;
+    padding: 8px 12px;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+}
+
+.basket-qty-btn {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.6);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+    transition: color 0.3s;
+}
+
+.basket-qty-btn:hover {
+    color: #000;
+}
+
+.basket-qty-value {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.basket-checkout-btn {
+    background-color: #b84a5d;
+    color: white;
+    font-family: 'Jost', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: uppercase;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 56px;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 10px;
+    align-self: center;
+}
+
+.basket-checkout-btn:hover {
+    background-color: #a8334e;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.basket-terms {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.basket-terms-checkbox {
+    width: 35px;
+    height: 35px;
+    border: 3px solid #38040E;
+    border-radius: 10px;
+    background: none;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: all 0.3s;
+    position: relative;
+}
+
+.basket-terms-checkbox.checked {
+    background-color: #38040E;
+}
+
+.basket-terms-checkbox.checked::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.basket-terms-text {
+    font-family: 'Jost', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: #000;
+    text-transform: uppercase;
+    margin: 0;
+    line-height: 1.3;
+    max-width: 600px;
+}
+
+.basket-terms-link {
+    color: #000;
+    text-decoration: underline;
+}
+
+.basket-terms-link {
+  color: var(--black);
+  text-decoration: underline;
+}
+
+/* ==================== HERO SECTION ==================== */
+/* Full-screen hero carousel with 4 rotating background images */
+.hero {
+  position: relative;
+  height: 100vh;              /* Full viewport height */
+  min-height: 800px;          /* Prevent too small on short screens */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-top: 0;
+}
+
+/* Decorative wavy curve at bottom of hero */
+.hero-curve {
+  position: absolute;
+  bottom: -1100px;             /* Extend below hero for seamless transition */
+  left: 50%;
+  transform: translateX(-50%) scaleY(1.5);
+  width: 200%;
+  height: auto;
+  z-index: 1;
+  pointer-events: none;       /* Allow clicks to pass through */
+}
+
+.hero-curve img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Container for carousel slides with gradient fade at bottom */
+.hero-slides {
+  position: absolute;
+  inset: 0;
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+}
+
+/* Individual carousel slide (4 background images) */
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;                  /* Hidden by default */
+  transition: opacity 1s ease-in-out;
+}
+
+/* Active slide is visible */
+.hero-slide.active {
+  opacity: 1;
+}
+
+/* Dark overlay for better text readability */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(2px);
+}
+
+/* Main content area (title and CTA button) */
+.hero-content {
+  position: relative;
+  z-index: 2;                  /* Above slides */
+  text-align: center;
+  max-width: 800px;
+  padding: 0 20px;
+}
+
+/* Hero title with text shadow for visibility */
+.hero-title {
+  font-family: var(--font-heading);
+  font-size: 64px;
+  font-weight: 400;
+  color: var(--white);
+  line-height: 1.2;
+  margin-bottom: 40px;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.hero-title span {
+  font-weight: 600;            /* Bold emphasis on key words */
+}
+
+/* Call-to-action button with ripple effect (js.js) */
+.cta-button {
+  font-family: var(--font-alt);
+  font-size: 24px;
+  padding: 12px 30px;
+  background: var(--primary-pink);
+  color: var(--white);
+  border: none;
+  border-radius: 32px;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;            /* Contain ripple effect */
+}
+
+.cta-button:hover {
+  transform: translateY(-2px); /* Lift effect */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  background: #9E1E3A;         /* Darker pink */
+}
+
+/* Secondary variant for smaller buttons */
+.cta-button.secondary {
+  font-size: 22px;
+  padding: 10px 25px;
+  margin-left: 120px;
+}
+
+/* Carousel Navigation on right side */
+.carousel-nav {
+  position: absolute;
+  right: 100px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  z-index: 3;
+}
+
+/* Vertical list of slide numbers (1, 2, 3, 4) */
+.carousel-labels {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  font-family: var(--font-heading);
+  font-size: 28px;
+  color: var(--white);
+  padding: 20px 0;
+}
+
+.carousel-labels p {
+  margin: 0;
+}
+
+/* Clickable slide number buttons */
+.carousel-btn {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  font-family: var(--font-heading);
+  font-size: 28px;
+  transition: all 0.3s;
+  padding: 0;
+}
+
+/* Active slide number is brighter and larger */
+.carousel-btn:hover,
+.carousel-btn.active {
+  color: var(--white);
+  transform: scale(1.1);
+}
+
+/* Vertical line indicator */
+.carousel-line {
+  width: 4px;
+  height: 341px;
+  background: rgba(255, 249, 245, 0.8);
+  border-radius: 2px;
+}
+
+/* Moving indicator showing current slide position */
+.carousel-indicator {
+  position: absolute;
+  right: 0;
+  width: 10px;
+  height: 85px;                 /* 1/4 of line height */
+  background: rgba(255, 249, 245, 0.9);
+  border-radius: 5px;
+  transition: top 0.3s ease;    /* Smooth movement between slides */
+  top: 0;
+}
+
+/* Social Links on left side */
+.social-links {
+  position: absolute;
+  left: 122px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  z-index: 3;
+}
+
+/* Vertical "FOLLOW US" text */
+.social-text {
+  font-family: var(--font-heading);
+  font-size: 32px;
+  font-weight: 500;
+  color: var(--primary-bg);
+  writing-mode: vertical-rl;   /* Vertical text */
+  text-orientation: mixed;
+  transform: rotate(0deg);
+}
+
+/* Social media icons (Instagram, Facebook, Pinterest) */
+.social-icon {
+  width: 48px;
+  height: 48px;
+  transition: all 0.3s;
+  filter: brightness(0) invert(1);  /* Make icons white */
+}
+
+/* Hover effect - scale and pink tint */
+.social-icon:hover {
+  transform: scale(1.1);
+  filter: brightness(0) invert(1) sepia(1) saturate(5) hue-rotate(310deg);
+}
+
+.social-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* ==================== ABOUT SECTION ==================== */
+/* Section with background wave pattern */
+.wave-section {
+  position: relative;
+  padding: 120px 0;
+  overflow: hidden;
+}
+
+/* Background wave pattern image with low opacity */
+.wave-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0.1;                /* Very subtle background */
+  pointer-events: none;        /* Allow clicks to pass through */
+  top: 0;
+  left: 0;
+}
+
+.wave-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ==================== EXPLORE SECTION ==================== */
+/* Two-column layout with text and rotated wave image */
+.explore-section {
+  position: relative;
+  padding: 40px 0;
+  background: var(--primary-bg);
+}
+
+/* Left-aligned text with image on right */
+.explore-section .container {
+  padding-left: 0;
+  padding-right: 104px;
+}
+
+.explore-section .explore-content {
+  display: flex;
+  align-items: center;
+  padding: 60px 60px 60px 60px;
+}
+
+/* Text content (left side) */
+.explore-section .explore-text {
+  width: 614px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  justify-content: center;
+}
+
+.explore-section .section-title {
+  text-align: left;
+}
+
+.explore-section .section-description {
+  text-align: left;
+}
+
+/* Rotated wave image (right side, extends beyond container) */
+.explore-section .explore-image {
+  width: 1167.755px;
+  height: 580.272px;
+  flex-shrink: 0;
+  overflow: visible;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: -550px;         /* Extend image to left */
+}
+
+/* Container for rotated wave image */
+.explore-section .rotated-wave-container {
+  position: relative;
+  width: 580.272px;
+  height: 1167.755px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Wave image rotated 270° */
+.explore-section .rotated-wave-img {
+  width: auto;
+  height: 600px;
+  max-width: none;
+  max-height: none;
+}
+
+/* Wave dividers between sections */
+.lumina-wave-divider {
+  width: 100%;
+  overflow: hidden;
+  background: var(--primary-bg);
+  position: relative;
+  z-index: 10;
+  margin-top: -200px;
+}
+
+.lumina-wave-divider img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Second wave divider with more overlap */
+.lumina-wave-divider-2 {
+  width: 100%;
+  height: 900px;
+  margin-top: -400px;          /* Overlap previous section */
+  overflow: visible;
+  background: var(--primary-bg) url('../images/luminabølge2.png') no-repeat center bottom;
+  background-size: cover;
+  position: relative;
+  z-index: 10;
+}
+
+/* ==================== DESIGN SECTION ==================== */
+/* Right-aligned text with image on left */
+.design-section {
+  position: relative;
+  background: var(--primary-bg);
+  padding-top: 16px;
+  padding-bottom: 80px;
+}
+
+.design-section .container {
+  padding-left: 104px;
+  padding-right: 0;
+  margin-left: -160px;
+}
+
+.design-section .design-content {
+  display: flex;  
+  align-items: center;
+  padding: 60px 60px 60px 60px;
+  margin-left: 200px;
+  gap: 80px;
+}
+
+/* Text content (right side) */
+.design-section .design-text {
+  width: 614px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  justify-content: center;
+  padding-left: 0;
+  margin-right: 0;
+}
+
+.design-section .section-title {
+  text-align: right;
+}
+
+.design-section .section-description {
+  text-align: right;
+}
+
+/* Image container (left side) */
+.design-section .design-image {
+  width: 710px;
+  height: 637px;
+  flex-shrink: -2;
+  overflow: visible;
+  position: relative;
+  margin-left: -300px;
+}
+
+/* Make only the Design-section image same size and position as AboutUs.png */
+.design-section .rotated-wave-img {
+  width: 580.272px;
+  height: 1167.755px;
+  max-width: none;
+  max-height: none;
+  transform: rotate(0deg);
+}
+.design-section .rotated-wave-container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1194.877px;
+  height: 636.993px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Shared section typography */
+.section-title {
+  font-family: var(--font-heading);
+  font-size: 48px;
+  font-weight: 400;
+  color: var(--primary-red);
+  margin-bottom: 24px;
+  text-transform: uppercase;
+}
+
+.section-description {
+  font-size: 26px;
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--black);
+}
+
+/* About Section - mirrors design section layout */
+.about-section {
+  position: relative;
+
+  background: var(--primary-bg);
+}
+
+.about-section .container {
+  padding-left: 104px;
+  padding-right: 0;
+}
+
+.about-section .about-content {
+  display: flex;
+  gap: 80px;
+  align-items: center;
+}
+
+/* Text content (right side) */
+.about-section .about-text {
+  width: 614px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  justify-content: center;
+}
+
+.about-section .section-title {
+  text-align: right;
+}
+
+.about-section .section-description {
+  text-align: right;
+}
+
+/* Image container (left side) */
+.about-section .about-image {
+  width: 710px;
+  height: 637px;
+  flex-shrink: -2;
+  overflow: visible;
+  position: relative;
+  margin-left: -300px;
+}
+
+/* Rotated wave image container */
+.rotated-wave-container {
+  position: absolute;
+  left: 100px;
+  top: 0;
+  width: 1194.877px;
+  height: 636.993px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Wave image rotated 0° */
+.rotated-wave-img {
+  width: auto;
+  height: 600px;
+  transform: rotate(0deg);
+  object-fit: contain;
+}
+
+/* Shared image styles for explore and design sections */
+.explore-image,
+.design-image {
+  flex: 1;
+  min-height: 580px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Speaker wave image with floating animation */
+.speaker-wave-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0.8;
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Floating animation for images */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+/* ==================== FEATURES SECTION ==================== */
+/* Product introduction with feature grid */
+.introducing-section {
+  position: relative;
+  padding: 100px 0;
+  margin-top: -270px;          /* Overlap with previous section */
+  z-index: 20;                 /* Above wave dividers */
+}
+
+.introducing-header {
+  text-align: center;
+  max-width: 1304px;
+  margin: 0 auto 60px;
+}
+
+/* Main product introduction title */
+.main-title {
+  font-family: var(--font-heading);
+  font-size: 64px;
+  font-weight: 400;
+  color: var(--primary-red);
+  margin-bottom: 26px;
+  text-transform: uppercase;
+}
+
+.main-description {
+  font-size: 26px;
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--black);
+}
+
+/* 4-column grid of feature cards */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);  /* 4 equal columns */
+  gap: 32px;
+  margin: 60px auto;
+  max-width: 1400px;
+}
+
+/* Individual feature card with icon and text */
+.feature-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+  transition: transform 0.3s ease;  /* Hover effect in js.js */
+}
+
+/* Circular icon container */
+.feature-icon {
+  width: 130px;
+  height: 130px;
+  background: var(--light-blue);
+  border-radius: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.25);
+  padding: 20px;
+}
+
+.feature-icon img {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+}
+
+.feature-title {
+  font-family: var(--font-koulen);
+  font-size: 40px;
+  color: var(--dark-text);
+  font-weight: 400;
+}
+
+.feature-description {
+  font-size: 16px;
+  color: var(--black);
+  max-width: 200px;
+}
+
+/* Product showcase image */
+.product-details {
+  position: relative;
+  max-width: 1100px;
+  margin: 80px auto;
+  text-align: center;
+}
+
+.product-showcase-image {
+  width: 90%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Color swatches for product variants */
+.color-options {
+  display: flex;
+  gap: 42px;
+  justify-content: flex-start;
+  margin: 60px 0;
+}
+
+/* Individual color swatch - shows color name on hover */
+.color-swatch {
+  width: 180px;
+  height: 80px;
+  border-radius: 56px;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.25);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Color name appears on hover */
+.color-name {
+  font-family: var(--font-alt);
+  font-size: 20px;
+  font-weight: 600;
+  color: white;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  opacity: 0;                  /* Hidden by default */
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.color-swatch:hover {
+  transform: scale(1.1);       /* Enlarge on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.color-swatch:hover .color-name {
+  opacity: 1;                  /* Show color name on hover */
+}
+
+/* Active swatch has red outline */
+.color-swatch.active {
+  outline: 3px solid var(--primary-red);
+  outline-offset: 4px;
+}
+
+/* Call-to-action section */
+.section-cta {
+  text-align: center;
+  margin: 80px 0;
+  position: relative;
+  z-index: 20;
+  margin-left: -600px;        /* Offset positioning */
+}
+
+.cta-title {
+  font-family: var(--font-heading);
+  font-size: 40px;
+  font-weight: 400;
+  color: var(--primary-red);
+  margin-bottom: 32px;
+  text-transform: uppercase;
+}
+
+/* Large wave divider with background image */
+.lumina-wave-divider-2 {
+  width: 100%;
+  height: 900px;
+  margin-top: -400px;          /* Overlap previous section */
+  overflow: visible;
+  background: var(--primary-bg) url('../images/luminabølge2.png') no-repeat center bottom;
+  background-size: cover;
+  position: relative;
+  z-index: 10;
+}
+
+/* ==================== COMMUNITY SECTION ==================== */
+/* Scrolling gallery of user-generated content */
+.community-section {
+  position: relative;
+  padding: 100px 0;
+  margin-top: -100px;
+  z-index: 5;
+}
+
+.community-header {
+  text-align: center;
+  max-width: 1304px;
+  margin: 0 auto 60px;
+}
+
+/* Auto-scrolling horizontal gallery */
+.community-gallery-carousel {
+  overflow: hidden;            /* Hide overflow for infinite scroll effect */
+  margin-top: 60px;
+  position: relative;
+}
+
+/* Gallery track with infinite scroll animation */
+.gallery-track {
+  display: flex;
+  gap: 40px;
+  animation: scroll 30s linear infinite;  /* Continuous scroll */
+  width: fit-content;
+}
+
+/* Infinite horizontal scroll animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);  /* Move halfway (duplicated content) */
+  }
+}
+
+/* Individual gallery image with hover scale effect */
+.gallery-item {
+  width: 400px;
+  aspect-ratio: 3/4;           /* 3:4 portrait ratio */
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  flex-shrink: 0;              /* Maintain width */
+}
+
+.gallery-item:hover {
+  transform: scale(1.15);      /* Zoom effect on hover */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  z-index: 10;                 /* Bring to front */
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ==================== REVIEWS SECTION ==================== */
+/* Trustpilot integration with wave background */
+.reviews-section {
+  padding: 100px 0 1000px 0;   /* Large bottom padding for wave */
+  margin-top: -150px;
+  text-align: center;
+  position: relative;
+  background: url('../images/Lumina bølge1.png') no-repeat center bottom;
+  background-size: contain;
+}
+
+.reviews-header {
+  max-width: 1304px;
+  margin: 0 auto 60px;
+}
+
+/* Trustpilot logo and CTA button */
+.reviews-cta {
+  display: flex;
+  gap: 60px;
+  align-items: center;
+  justify-content: center;
+}
+
+.trustpilot-logo {
+  height: 80px;
+}
+
+.trustpilot-logo img {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+}
+
+/* ==================== NEWSLETTER SECTION ==================== */
+/* Email subscription form with validation (js.js) */
+.newsletter-section {
+  position: relative;
+  padding: 80px 0 600px 0;
+  margin-top: -500px;          /* Overlap previous section */
+  background: url('../images/luminabølge2.png') no-repeat center bottom;
+  background-size: contain;
+}
+
+/* Two-column layout: image left, form right */
+.newsletter-container {
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: 0 104px;
+  display: flex;
+  align-items: center;
+  gap: 140px;
+}
+
+/* Decorative circular wave image */
+.newsletter-image-wrapper {
+  flex: 0 0 900px;             /* Fixed width */
+  height: 900px;
+  position: relative;
+  margin-left: -350px;        /* Extend beyond container */
+  transform: rotate(90deg);
+}
+
+.newsletter-circle-image {
+  width: 75%;
+  height: 75%;
+  object-fit: contain;
+  --section-gap: 80px;             /* Vertical spacing between sections for improved layout and clarity */
+}
+.newsletter-form-wrapper {
+  flex: 1;
+  max-width: 600px;
+}
+
+.newsletter-title {
+  font-family: var(--font-heading);
+  font-size: 36px;
+  color: var(--primary-red);
+  margin-bottom: 24px;
+  text-transform: uppercase;
+  font-weight: 400;
+  text-align: center;
+}
+
+.newsletter-description {
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 300;
+  margin-bottom: 40px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* Email input and submit button grouped together */
+.newsletter-input-group {
+  display: flex;
+  gap: 0;                      /* No gap - buttons connect */
+  position: relative;
+}
+
+/* Email input field - validated with regex in js.js */
+.newsletter-email-input {
+  flex: 1;
+  padding: 12px 24px;
+  font-size: 18px;
+  border: 3px solid var(--primary-red);
+  border-radius: 21px 0 0 21px;  /* Rounded left side only */
+  background: rgba(217, 217, 217, 0.29);
+  color: rgba(145, 0, 0, 0.76);
+  outline: none;
+  font-family: var(--font-body);
+  box-shadow: 0px 4px 3px 0px rgba(0, 0, 0, 0.25);
+}
+
+.newsletter-email-input::placeholder {
+  color: rgba(145, 0, 0, 0.76);
+}
+
+/* Submit button - connects to input field */
+.newsletter-submit-button {
+  padding: 12px 28px;
+  background: var(--primary-red);
+  color: var(--white);
+  border: none;
+  border-radius: 0 28px 28px 0;  /* Rounded right side only */
+  font-family: var(--font-heading);
+  font-size: 22px;
+  cursor: pointer;
+  transition: background 0.3s;
+  font-weight: 400;
+}
+
+.newsletter-submit-button:hover {
+  background: #7a0000;         /* Darker red on hover */
+}
+
+/* ==================== FOOTER ==================== */
+/* 4-column grid with logo, contact, links, and social */
+.footer {
+  background: var(--light-pink);
+  padding: 60px 0 30px;
+  margin-top: -500px;          /* Overlap with newsletter wave */
+  position: relative;
+  z-index: 10;
+}
+
+/* 4-column grid layout */
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 60px;
+  margin-bottom: 40px;
+}
+
+/* LUMINA logo in footer */
+.footer-logo {
+  font-family: var(--font-logo);
+  font-size: 42px;
+  font-weight: 200;
+  color: var(--dark-text);
+  margin-bottom: 30px;
+}
+
+/* Contact information column */
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.footer-contact p {
+  font-family: var(--font-alt);
+  font-size: 15px;
+  color: var(--dark-text);
+}
+
+/* Column titles */
+.footer-title {
+  font-family: var(--font-alt);
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--dark-text);
+  margin-bottom: 24px;
+  margin-top: 94px;
+}
+
+/* Navigation links with underline animation */
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.footer-links a {
+  font-family: var(--font-alt);
+  font-size: 15px;
+  color: var(--dark-text);
+  text-decoration: none;
+  transition: all 0.3s;
+  position: relative;
+  padding-bottom: 2px;
+}
+
+/* Underline animation on hover */
+.footer-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--dark-text);
+  transition: width 0.3s ease;
+}
+
+.footer-links a:hover::after {
+  width: 100%;               /* Expand underline on hover */
+}
+
+/* Payment method icons (Visa, Mastercard, etc.) */
+.payment-icons {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.payment-icons img {
+  width: 100px;
+  height: auto;
+}
+
+/* Footer newsletter subscription form */
+.footer-newsletter {
+  display: flex;
+  margin-bottom: 32px;
+}
+
+.footer-newsletter input {
+  flex: 1;
+  padding: 12px 16px;
+  border: 1px solid var(--dark-text);
+  border-radius: 7px 0 0 7px;  /* Rounded left side */
+  background: rgba(253, 244, 244, 0.5);
+  font-size: 17px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.footer-newsletter button {
+  padding: 12px 24px;
+  background: var(--dark-text);
+  color: var(--white);
+  border: none;
+  border-radius: 0 7px 7px 0;  /* Rounded right side */
+  font-family: var(--font-alt);
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.footer-newsletter button:hover {
+  background: #4a0512;         /* Darker on hover */
+}
+
+/* Social media section */
+.footer-social h5 {
+  font-family: var(--font-alt);
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--dark-text);
+  margin-bottom: 16px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 16px;
+}
+
+/* Social media icon links */
+.footer-social-icon {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: transform 0.3s;
+}
+
+.footer-social-icon:hover {
+  transform: scale(1.1);       /* Enlarge on hover */
+}
+
+/* Dark red color filter for social icons */
+.footer-social-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: brightness(0) saturate(100%) invert(6%) sepia(16%) saturate(4784%) hue-rotate(311deg) brightness(96%) contrast(104%);
+}
+
+/* Footer bottom copyright text */
+.footer-bottom {
+  text-align: center;
+  padding-top: 0px;
+}
+
+.footer-bottom p {
+  font-family: var(--font-alt);
+  font-size: 11px;
+  color: var(--dark-text);
+  margin: 5px 0;
+}
+
+/* ==================== ANIMATIONS ==================== */
+/* Ripple effect for CTA button (triggered by js.js) */
+@keyframes ripple {
+  from {
+    opacity: 1;
+    transform: scale(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(2);
+  }
+}
+
+/* ==================== RESPONSIVE DESIGN ==================== */
+/* Media queries for different screen sizes: 1400px, 1024px, 768px, 480px */
+
+/* Tablets and smaller desktops (max-width: 1400px) */
+@media (max-width: 1400px) {
+  :root {
+    --container-padding: 60px;   /* Reduced padding */
+  }
+  
+  /* Slightly reduce font sizes */
+  .hero-title {
+    font-size: 68px;
+  }
+  
+  .main-title {
+    font-size: 56px;
+  }
+  
+  .section-title {
+    font-size: 44px;
+  }
+  
+  .section-description {
+    font-size: 24px;
+  }
+  
+  /* Features grid: 4 → 2 columns */
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+  
+  .feature-title {
+    font-size: 36px;
+  }
+  
+  .feature-icon {
+    width: 115px;
+    height: 115px;
+  }
+  
+  /* Smaller color swatches */
+  .color-swatch {
+    width: 160px;
+    height: 70px;
+  }
+  
+  /* Newsletter adjustments */
+  .newsletter-container {
+    padding: 0 80px;
+    gap: 100px;
+  }
+  
+  .newsletter-title {
+    font-size: 32px;
+  }
+}
+
+/* Tablets (max-width: 1024px) */
+@media (max-width: 1024px) {
+  :root {
+    --container-padding: 50px;
+  }
+  
+  /* Header adjustments */
+  .header-content {
+    padding: 0 50px;
+  }
+  
+  .logo h1 {
+    font-size: 52px;
+  }
+  
+  .nav-link {
+    font-size: 28px;
+  }
+  
+  /* Hero section scaling */
+  .hero-title {
+    font-size: 52px;
+  }
+  
+  .hero-subtitle {
+    font-size: 28px;
+  }
+  
+  .cta-button {
+    font-size: 28px;
+    padding: 14px 40px;
+  }
+  
+  /* Typography scaling */
+  .main-title {
+    font-size: 48px;
+  }
+  
+  .subtitle {
+    font-size: 22px;
+  }
+  
+  .section-title {
+    font-size: 40px;
+  }
+  
+  .section-description {
+    font-size: 22px;
+  }
+  
+  /* Feature cards scaling */
+  .feature-title {
+    font-size: 32px;
+  }
+  
+  .feature-description {
+    font-size: 14px;
+  }
+  
+  .feature-icon {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .feature-icon img {
+    width: 55px;
+    height: 55px;
+  }
+  
+  /* Color swatches */
+  .color-swatch {
+    width: 140px;
+    height: 60px;
+    gap: 32px;
+  }
+  
+  .color-name {
+    font-size: 18px;
+  }
+  
+  /* Stack two-column layouts vertically */
+  .about-content,
+  .explore-content,
+  .design-content {
+    flex-direction: column;
+  }
+  
+  .about-image,
+  .explore-image,
+  .design-image {
+    max-width: 100%;
+  }
+  
+  /* Gallery: 4 → 3 columns */
+  .community-gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  /* Footer: 4 → 2 columns */
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .footer-title {
+    font-size: 18px;
+    margin-top: 60px;
+  }
+  
+  .footer-logo {
+    font-size: 38px;
+  }
+  
+  /* Newsletter layout changes */
+  .newsletter-content {
+    flex-direction: column;
+  }
+  
+  .newsletter-container {
+    padding: 0 50px;
+    gap: 80px;
+  }
+  
+  .newsletter-title {
+    font-size: 28px;
+  }
+  
+  .newsletter-email-input {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+  
+  .newsletter-button {
+    font-size: 16px;
+    padding: 10px 28px;
+  }
+  
+  /* Basket overlay wider on tablets */
+  .basket-overlay {
+    width: 60%;
+  }
+  
+  .basket-title {
+    font-size: 32px;
+  }
+  
+  .basket-product-name {
+    font-size: 18px;
+  }
+  
+  .basket-product-color {
+    font-size: 14px;
+  }
+}
+
+/* Mobile devices (max-width: 768px) */
+@media (max-width: 768px) {
+  :root {
+    --container-padding: 30px;
+  }
+  
+  /* Mobile-optimized header */
+  .header-content {
+    padding: 0 30px;
+  }
+  
+  .logo h1 {
+    font-size: 42px;
+  }
+  
+  .nav {
+    gap: 20px;
+  }
+  
+  .nav-link {
+    font-size: 22px;
+  }
+  
+  .basket-icon {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .hero {
+    min-height: 500px;
+    padding: 80px 0 60px;
+  }
+  
+  .hero-title {
+    font-size: 38px;
+  }
+  
+  .hero-subtitle {
+    font-size: 22px;
+  }
+  
+  .cta-button {
+    font-size: 24px;
+    padding: 12px 32px;
+  }
+  
+  .carousel-nav,
+  .social-links {
+    display: none;
+  }
+  
+  .main-title {
+    font-size: 38px;
+  }
+  
+  .subtitle {
+    font-size: 18px;
+  }
+  
+  .section-title {
+    font-size: 32px;
+  }
+  
+  .section-description {
+    font-size: 18px;
+  }
+  
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .feature-title {
+    font-size: 28px;
+  }
+  
+  .feature-description {
+    font-size: 14px;
+    max-width: 100%;
+  }
+  
+  .feature-icon {
+    width: 90px;
+    height: 90px;
+  }
+  
+  .feature-icon img {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .color-options {
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .color-swatch {
+    width: 120px;
+    height: 50px;
+  }
+  
+  .color-name {
+    font-size: 16px;
+  }
+  
+  .community-gallery {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+  
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .footer-logo {
+    font-size: 34px;
+  }
+  
+  .footer-title {
+    font-size: 16px;
+    margin-top: 30px;
+    margin-bottom: 16px;
+  }
+  
+  .footer-contact p,
+  .footer-links a {
+    font-size: 13px;
+  }
+  
+  .footer-newsletter input {
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+  
+  .footer-newsletter button {
+    font-size: 14px;
+    padding: 10px 18px;
+  }
+  
+  .reviews-cta {
+    flex-direction: column;
+    gap: 40px;
+  }
+  
+  .newsletter-container {
+    padding: 0 30px;
+    gap: 50px;
+    flex-direction: column;
+  }
+  
+  .newsletter-image-wrapper {
+    margin-left: 0;
+    max-width: 100%;
+  }
+  
+  .newsletter-title {
+    font-size: 24px;
+  }
+  
+  .newsletter-email-input {
+    font-size: 14px;
+    padding: 10px 16px;
+  }
+  
+  .newsletter-button {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+  
+  .basket-overlay {
+    width: 85%;
+    padding: 30px;
+  }
+  
+  .basket-title {
+    font-size: 26px;
+  }
+  
+  .basket-product {
+    gap: 12px;
+    padding: 12px;
+  }
+  
+  .basket-product-image {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .basket-product-name {
+    font-size: 16px;
+  }
+  
+  .basket-product-color {
+    font-size: 12px;
+  }
+  
+  .basket-product-price {
+    font-size: 18px;
+  }
+  
+  .basket-quantity-btn {
+    font-size: 18px;
+  }
+  
+  .basket-quantity {
+    font-size: 18px;
+  }
+  
+  .basket-checkout-button {
+    font-size: 24px;
+    padding: 14px;
+  }
+}
+
+/* Small mobile devices (max-width: 480px) */
+@media (max-width: 480px) {
+  :root {
+    --container-padding: 16px;
+    --primary-red: #c2405c;
+    --primary-blue: #2420a1;
+    --primary-bg: #f9f0eb;
+    --section-bg: #fff9f5;
+    --headline: #910000;
+    --footer-bg: #f3c2cc;
+  }
+  
+  /* Compact header for small screens */
+  .header-content {
+    padding: 0 16px;
+    min-height: 56px;
+    align-items: center;
+  }
+  
+  .logo h1 {
+    font-size: 32px;
+    font-family: 'Zen Tokyo Zoo', cursive;
+    color: var(--primary-blue);
+    letter-spacing: 1px;
+    margin: 0;
+  }
+  
+  .nav {
+    gap: 10px;
+  }
+  
+  .nav-link {
+    font-size: 15px;
+    padding: 6px 10px;
+    border-radius: 19px;
+    background: var(--primary-red);
+    color: #fff;
+    font-family: 'Jost', sans-serif;
+    text-transform: uppercase;
+    box-shadow: 0 2px 1px 0 rgba(0,0,0,0.08);
+  }
+  
+  .basket-icon {
+    width: 28px;
+    height: 28px;
+  }
+  
+  /* Compact hero section */
+  .hero {
+    min-height: 420px;
+    padding: 40px 0 24px;
+    background: var(--primary-bg);
+  }
+  
+  .hero-title {
+    font-size: 22px;
+    font-family: 'Jost', sans-serif;
+    color: var(--headline);
+    text-align: left;
+    margin-bottom: 12px;
+  }
+  
+  .hero-subtitle {
+    font-size: 18px;
+  }
+  
+  .cta-button {
+    font-size: 15px;
+    padding: 8px 18px;
+    border-radius: 19px;
+    background: var(--primary-red);
+    color: #fff;
+    font-family: 'Jost', sans-serif;
+    text-transform: uppercase;
+    box-shadow: 0 2px 1px 0 rgba(0,0,0,0.12);
+  }
+  
+  /* Mobile typography - smallest sizes */
+  .main-title {
+    font-size: 22px;
+    color: var(--headline);
+    font-family: 'Jost', sans-serif;
+    text-align: left;
+    margin-bottom: 10px;
+  }
+  
+  .subtitle {
+    font-size: 16px;
+  }
+  
+  .section-title {
+    font-size: 18px;
+    color: var(--headline);
+    font-family: 'Jost', sans-serif;
+    text-align: left;
+    margin-bottom: 8px;
+  }
+  
+  .section-description {
+    font-size: 13px;
+    color: #222;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 10px;
+  }
+  
+  /* Compact feature cards */
+  .feature-title {
+    font-size: 16px;
+    color: var(--headline);
+    font-family: 'Koulen', sans-serif;
+    margin-bottom: 2px;
+  }
+  
+  .feature-description {
+    font-size: 10px;
+    color: #222;
+    font-family: 'Lao Sans Pro', 'Noto Sans', sans-serif;
+  }
+  
+  .feature-icon {
+    width: 56px;
+    height: 56px;
+    background: #96abcb;
+    border-radius: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 4px;
+  }
+  
+  .feature-icon img {
+    width: 28px;
+    height: 28px;
+  }
+  
+  /* Color swatches wrap on mobile */
+  .color-options {
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .color-swatch {
+    width: 80px;
+    height: 36px;
+    border-radius: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 12px;
+    box-shadow: 0 1.7px 1.7px 0 rgba(0,0,0,0.12);
+  }
+  
+  .color-name {
+    font-size: 12px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+  
+  /* Gallery: Single column */
+  .community-gallery {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  
+  /* Compact footer */
+  .footer-logo {
+    font-size: 22px;
+    font-family: 'Zen Tokyo Zoo', cursive;
+    color: var(--primary-blue);
+    margin-bottom: 8px;
+  }
+  
+  .footer-title {
+    font-size: 12px;
+    margin-top: 12px;
+    margin-bottom: 8px;
+    color: var(--headline);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+  
+  .footer-contact p,
+  .footer-links a {
+    font-size: 10px;
+  }
+  
+  .footer-newsletter input {
+    font-size: 11px;
+    padding: 6px 8px;
+  }
+  
+  .footer-newsletter button {
+    font-size: 11px;
+    padding: 6px 10px;
+    border-radius: 13px;
+    background: var(--primary-red);
+    color: #fff;
+    font-family: 'Jost', sans-serif;
+    text-transform: uppercase;
+  }
+  
+  .footer-social h5 {
+    font-size: 12px;
+    color: var(--headline);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+  
+  .footer-social-icon {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .payment-icons img {
+    width: 90px;
+  }
+  
+  .newsletter-container {
+    padding: 0 10px;
+    gap: 16px;
+  }
+  
+  .newsletter-title {
+    font-size: 15px;
+    margin-bottom: 10px;
+    color: var(--headline);
+    font-family: 'Jost', sans-serif;
+  }
+  
+  .newsletter-email-input {
+    font-size: 11px;
+    padding: 6px 8px;
+  }
+  
+  .newsletter-button {
+    font-size: 11px;
+    padding: 6px 10px;
+    border-radius: 13px;
+    background: var(--primary-red);
+    color: #fff;
+    font-family: 'Jost', sans-serif;
+    text-transform: uppercase;
+  }
+  
+  .basket-overlay {
+    width: 100vw;
+    max-width: 100vw;
+    padding: 8px;
+  }
+  
+  .basket-close-btn {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .basket-title {
+    font-size: 16px;
+    color: var(--headline);
+    font-family: 'Jost', sans-serif;
+  }
+  
+  .basket-product {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+  }
+  
+  .basket-product-image {
+    width: 70px;
+    height: 70px;
+    border-radius: 24px;
+  }
+  
+  .basket-product-info {
+    text-align: center;
+    min-width: auto;
+  }
+  
+  .basket-product-name {
+    font-size: 11px;
+    font-family: 'Jost', sans-serif;
+  }
+  
+  .basket-product-color {
+    font-size: 9px;
+    font-family: 'Jost', sans-serif;
+  }
+  
+  .basket-product-price {
+    font-size: 12px;
+  }
+  
+  .basket-quantity-controls {
+    gap: 12px;
+  }
+  
+  .basket-quantity-btn {
+    font-size: 12px;
+  }
+  
+  .basket-quantity {
+    font-size: 12px;
+  }
+  
+  .basket-total-price {
+    font-size: 14px;
+  }
+  
+  .basket-checkout-button {
+    font-size: 13px;
+    padding: 8px;
+    border-radius: 13px;
+    background: var(--primary-red);
+    color: #fff;
+    font-family: 'Jost', sans-serif;
+    text-transform: uppercase;
+  }
+  
+  .basket-terms-text {
+    font-size: 9px;
+    max-width: 100%;
+    color: #222;
+    font-family: 'Jost', sans-serif;
+  }
+}
+ 
+
+/* Use your variables on elements along these lines */
+/*
+:root {
+  --contrast: lime;
+  --backgr: #000;
+}
+
+--- You can use the variables like this ---
+
+ main {
+   color: var(--contrast);
+   background-color: var(--backgr);
+ }
+*/
+.lumina-mobile-frame {
+  margin-top: 0;
+  position: relative;
+  z-index: 5;
+}
