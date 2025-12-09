@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUMINA ONE - Produkt</title>
+    <link rel="stylesheet" href="css/product.css">
+    <!-- Google Fonts: Zen Tokyo Zoo (logo), Jost (body), Poppins (headings/UI) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Tokyo+Zoo&family=Jost:wght@400;500;600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- ==================== HEADER NAVIGATION ==================== -->
+    <!-- Fixed header with logo (links to index.html), nav buttons, and dropdown menus -->
+    <!-- Dropdowns: SPEAKERS (product links), MORE (info links), dropdown managed by product.js -->
+    <header class="header">
+        <div class="header-content">
+            <!-- Logo section - clickable link back to home page -->
+            <div class="logo">
+                <a href="index.html" style="text-decoration: none; color: inherit;">
+                    <h1>LUMINA</h1>
+                </a>
+            </div>
+            <!-- Main navigation buttons - triggers dropdown overlays -->
+            <nav class="nav">
+                <button class="nav-link" id="speakersButton">SPEAKERS</button>
+                <button class="nav-link" id="moreButton">MORE</button>
+                <button class="nav-link" id="basketButton">BASKET</button>
+            </nav>
+        </div>
+        <!-- SPEAKERS dropdown menu with product links -->
+        <div class="dropdown-menu" id="speakersDropdown">
+            <div class="dropdown-content">
+                <div class="dropdown-column">
+                    <a href="product.html" class="dropdown-link">LUMINA ONE</a>
+                    <p class="dropdown-text">More to Come...</p>
+                </div>
+            </div>
+        </div>
+        <div class="dropdown-menu" id="dropdownMenu">
+            <div class="dropdown-content">
+                <div class="dropdown-column">
+                    <a href="#" class="dropdown-link" data-unavailable>About Us</a>
+                    <a href="#" class="dropdown-link" data-unavailable>Our Community</a>
+                </div>
+                <div class="dropdown-column">
+                    <a href="#" class="dropdown-link" data-unavailable>Reviews</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="product-main">
+        <div class="product-hero">
+            <div class="product-gallery">
+                <div class="main-image-container">
+                    <img src="images/SageGreen1.png" alt="Lumina Speaker in Sage Green" class="main-image" data-color="Sage Green">
+                    <button class="carousel-control prev">&#10094;</button>
+                    <button class="carousel-control next">&#10095;</button>
+                </div>
+            </div>
+
+            <div class="product-details">
+                <h2 class="product-title">LUMINA ONE</h2>
+                <p class="product-description">
+                    LUMINA One is a portable Bluetooth speaker that blends Scandinavian design with powerful, balanced sound. Lightweight, stylish, and built for social moments, it offers 18 hours of playtime, ambient LED lighting, and easy playlist sharing with friends. A speaker made for music, memories, and togetherness.
+                </p>
+
+                <div class="product-colors">
+                    <span class="color-label">COLORS:</span>
+                    <div class="color-options">
+                        <button class="color-option active" data-color="Sage Green" style="background-color: #8b9c8d;" title="Sage Green"></button>
+                        <button class="color-option" data-color="Dusty Rose" style="background-color: #b18778;" title="Dusty Rose"></button>
+                        <button class="color-option" data-color="Lavender Mist" style="background-color: #7f6c70;" title="Lavender Mist"></button>
+                        <button class="color-option" data-color="Moonlight White" style="background-color: #b7ac9a;" title="Moonlight White"></button>
+                    </div>
+                </div>
+
+                <div class="cta-row">
+                    <button class="add-to-basket-btn">ADD TO BASKET</button>
+                    <div class="quantity-pill">
+                        <button class="quantity-btn minus" aria-label="Minus">-</button>
+                        <span class="quantity-value">1</span>
+                        <button class="quantity-btn plus" aria-label="Plus">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Overlays -->
+    <!-- ==================== BASKET OVERLAY ==================== -->
+    <div class="basket-overlay" id="basketOverlay">
+        <div class="basket-content">
+            <div class="basket-header">
+                <h2 class="basket-title">BASKET</h2>
+                <button class="basket-close" id="basketClose">
+                    <img src="Iconer/CloseBasketIcon.svg" alt="Close">
+                </button>
+            </div>
+            <div class="basket-empty" id="basketEmpty">
+                <div class="basket-icon">
+                    <img src="Iconer/EmptyBasket.svg" alt="Empty Basket" style="width:100%;height:100%;display:block;">
+                </div>
+                <p class="basket-empty-title">YOUR BASKET IS EMPTY</p>
+                <p class="basket-empty-text">Please add one product or more to your basket to continue on</p>
+            </div>
+            <div class="basket-filled" id="basketFilled" style="display: none;">
+                <div class="basket-products-list" id="basketProductsList"></div>
+                <button class="basket-checkout-btn" id="checkoutBtn">CONTINUE TO PAYMENT & DELIVERY</button>
+                <div class="basket-terms">
+                    <div class="basket-terms-checkbox" id="termsCheckbox"></div>
+                    <p class="basket-terms-text">Before you proceed to checkout, please confirm that you have read and accepted our Terms & Conditions and Privacy Policy. By continuing, you agree to our policies regarding purchase, data protection, and returns.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/helpers.js"></script>
+
+    <script src="js/helpers.js"></script>
+    <script src="js/product.js"></script>
+</body>
+</html>

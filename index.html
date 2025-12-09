@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LUMINA - Bluetooth Speakers</title>
+  <link rel="stylesheet" href="css/css.css">
+  <!-- Google Fonts: Zen Tokyo Zoo (logo), Jost (body), Poppins (headings), Plus Jakarta Sans, Koulen -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Tokyo+Zoo&family=Jost:wght@400;500;600&family=Poppins:wght@300;400;600&family=Plus+Jakarta+Sans:wght@400;500;600&family=Koulen&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- ==================== HEADER NAVIGATION ==================== -->
+  <!-- Fixed header with logo, navigation links (SPEAKERS, MORE, BASKET) and dropdown menus -->
+  <!-- Dropdowns managed by js.js - click handlers toggle visibility -->
+  <header class="header">
+    <div class="header-content">
+      <!-- Logo section - links to home page -->
+      <div class="logo">
+        <h1>LUMINA</h1>
+      </div>
+      <!-- Main navigation buttons - triggers dropdown overlays -->
+      <nav class="nav">
+        <button class="nav-link" id="speakersButton">SPEAKERS</button>
+        <button class="nav-link" id="moreButton">MORE</button>
+        <button class="nav-link" id="basketButton">BASKET</button>
+      </nav>
+    </div>
+    <!-- SPEAKERS dropdown menu with product links -->
+    <div class="dropdown-menu" id="speakersDropdown">
+      <div class="dropdown-content">
+        <div class="dropdown-column">
+          <a href="product.html" class="dropdown-link">LUMINA ONE</a>
+          <p class="dropdown-text">More to Come...</p>
+        </div>
+      </div>
+    </div>
+    <div class="dropdown-menu" id="dropdownMenu">
+      <div class="dropdown-content">
+        <div class="dropdown-column">
+          <a href="#" class="dropdown-link" data-unavailable>About Us</a>
+          <a href="#" class="dropdown-link" data-unavailable>Our Community</a>
+        </div>
+        <div class="dropdown-column">
+          <a href="#" class="dropdown-link" data-unavailable>Reviews</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== BASKET OVERLAY ==================== -->
+  <div class="basket-overlay" id="basketOverlay">
+    <div class="basket-content">
+      <div class="basket-header">
+        <h2 class="basket-title">BASKET</h2>
+        <button class="basket-close" id="basketClose">
+          <img src="Iconer/CloseBasketIcon.svg" alt="Close">
+        </button>
+      </div>
+      <div class="basket-empty" id="basketEmpty">
+        <div class="basket-icon">
+          <img src="Iconer/EmptyBasket.svg" alt="Empty Basket" style="width:100%;height:100%;display:block;">
+        </div>
+        <p class="basket-empty-title">YOUR BASKET IS EMPTY</p>
+        <p class="basket-empty-text">Please add one product or more to your basket to continue on</p>
+      </div>
+      <div class="basket-filled" id="basketFilled" style="display: none;">
+        <div class="basket-products-list" id="basketProductsList"></div>
+        <button class="basket-checkout-btn" id="checkoutBtn">CONTINUE TO PAYMENT & DELIVERY</button>
+        <div class="basket-terms">
+          <div class="basket-terms-checkbox" id="termsCheckbox"></div>
+          <p class="basket-terms-text">Before you proceed to checkout, please confirm that you have read and accepted our Terms & Conditions and Privacy Policy. By continuing, you agree to our policies regarding purchase, data protection, and returns.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== HERO SECTION WITH CAROUSEL ==================== -->
+  <section class="hero" id="hero">
+    <div class="hero-slides">
+      <div class="hero-slide active" style="background-image: url('images/HeroBillede1.svg');"><div class="hero-overlay"></div></div>
+      <div class="hero-slide" style="background-image: url('images/HeroBillede2.svg');"><div class="hero-overlay"></div></div>
+      <div class="hero-slide" style="background-image: url('images/HeroBillede3.svg');"><div class="hero-overlay"></div></div>
+      <div class="hero-slide" style="background-image: url('images/HeroBillede4.svg');"><div class="hero-overlay"></div></div>
+    </div>
+    <div class="hero-content">
+      <h2 class="hero-title">Explore Endless Possibilities with <span>LUMINA ONE</span></h2>
+      <a href="product.html" class="cta-button" style="text-decoration: none; display: inline-block;">LEARN MORE</a>
+    </div>
+    <div class="carousel-nav">
+      <div class="carousel-labels">
+        <p class="active">Start</p>
+        <button class="carousel-btn active" data-slide="0">01</button>
+        <button class="carousel-btn" data-slide="1">02</button>
+        <button class="carousel-btn" data-slide="2">03</button>
+      </div>
+      <div class="carousel-line"></div>
+      <div class="carousel-indicator" id="carouselIndicator"></div>
+    </div>
+    <div class="social-links">
+      <p class="social-text">Follow us</p>
+      <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram"><img src="Iconer/instagram.svg" alt="Instagram"></a>
+      <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="TikTok"><img src="Iconer/tiktok.svg" alt="TikTok"></a>
+    </div>
+    <div class="hero-curve"><img src="images/HeroDivider.png" alt=""></div>
+  </section>
+
+  <!-- ==================== ABOUT SECTION ==================== -->
+  <section class="about-section">
+    <div class="container">
+      <div class="about-content">
+        <div class="about-text">
+          <h2 class="section-title">ABOUT LUMINA</h2>
+          <p class="section-description">LUMINA is more then just a speaker. It is a community, of music and sound. For people whoare passioned about thier speakers and aesthetic.</p>
+        </div>
+        <div class="about-image">
+          <div class="rotated-wave-container"><img src="images/AboutUs.png" alt="LUMINA Community" class="rotated-wave-img"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== EXPLORE SECTION ==================== -->
+  <section class="explore-section">
+    <div class="container">
+      <div class="explore-content">
+        <div class="explore-image">
+          <div class="rotated-wave-container"><img src="images/exploreEnjoy.png" alt="LUMINA Speaker" class="rotated-wave-img"></div>
+        </div>
+        <div class="explore-text">
+          <h2 class="section-title">EXPLORE & ENJOY</h2>
+          <p class="section-description">Bring your LUMINA speaker everywhere with you. Thanks to our portable handle, you can easily take your speaker with you on the go.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== DESIGN SECTION ==================== -->
+  <section class="design-section">
+    <div class="container">
+      <div class="design-content">
+        <div class="design-text">
+          <h2 class="section-title">DESIGNED FOR YOU</h2>
+          <p class="section-description">Most powerful speakers are black, boxy. LUMINA One is shaped around a modern, feminine lifestyle: soft curves, fabric textures, beautiful colors, and subtle LED lighting that sets the mood without looking tacky.</p>
+        </div>
+        <div class="design-image">
+          <div class="rotated-wave-container"><img src="images/DesignedForYou.png" alt="LUMINA Design" class="rotated-wave-img"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="lumina-wave-divider"><img src="images/Lumina bølge1.png" alt=""></div>
+
+  <!-- ==================== FEATURES SECTION ==================== -->
+  <section class="introducing-section">
+    <div class="container">
+      <div class="introducing-header">
+        <h2 class="main-title">INTRODUCING LUMINA ONE</h2>
+        <p class="main-description">The LUMINA One isn't just another Bluetooth speaker – it's created for the way you live, connect and share moments. LUMINA takes a completely different approach: it combines Scandinavian elegance, powerful sound, and features that make music social.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card"><div class="feature-icon waterproof"><img src="Iconer/Waterproof.svg" alt="Waterproof"></div><h3 class="feature-title">Waterproof</h3><p class="feature-description">You can take it with you anywhere</p></div>
+        <div class="feature-card"><div class="feature-icon weight"><img src="Iconer/Kilo.svg" alt="Weight"></div><h3 class="feature-title">3 kilos</h3><p class="feature-description">Lightweight and easy to carry in your bag</p></div>
+        <div class="feature-card"><div class="feature-icon battery"><img src="Iconer/Battery.svg" alt="Battery"></div><h3 class="feature-title">18 hours</h3><p class="feature-description">Up to 18 hours of battery life</p></div>
+        <div class="feature-card"><div class="feature-icon bluetooth"><img src="Iconer/bluetooth.svg" alt="Bluetooth"></div><h3 class="feature-title">Bluetooth</h3><p class="feature-description">Easy to connect</p></div>
+      </div>
+      <div class="product-details"><img src="images/Frame46.png" alt="LUMINA Speaker Features" class="product-showcase-image"></div>
+      <div class="color-options">
+        <div class="color-swatch" style="background-color: #809380;"><span class="color-name">Sage Green</span></div>
+        <div class="color-swatch" style="background-color: #be8875;"><span class="color-name" style="color: #2C2C2C;">Dusty Rose</span></div>
+        <div class="color-swatch" style="background-color: #957e85;"><span class="color-name">Lavender Mist</span></div>
+        <div class="color-swatch" style="background-color: #c8bcad;"><span class="color-name" style="color: #2C2C2C;">Moonlight White</span></div>
+      </div>
+      <div class="section-cta"><h3 class="cta-title">WANT TO KNOW MORE?</h3><a href="product.html" class="cta-button" style="text-decoration: none; display: inline-block;">CLICK HERE</a></div>
+    </div>
+  </section>
+  <div class="lumina-wave-divider-2"></div>
+
+  <!-- ==================== COMMUNITY SECTION ==================== -->
+  <section class="community-section">
+    <div class="container">
+      <div class="community-header">
+        <h2 class="main-title">OUR MUSIC LOVER COMMUNITY</h2>
+        <p class="main-description">You know what we really love about our LUMINA family? It feels like the brand genuinely belongs to them. Like, the whole vibe of LUMINA wouldn't exist without the people who bring the speaker to beach hangouts, sunset yoga, picnics, pre-parties — all of it.</p>
+      </div>
+      <div class="community-gallery-carousel">
+        <div class="gallery-track">
+          <div class="gallery-item"><img src="images/karosel1.svg" alt="Community"></div>
+          <div class="gallery-item"><img src="images/karosel2.svg" alt="Community"></div>
+          <div class="gallery-item"><img src="images/karosel3.svg" alt="Community"></div>
+          <div class="gallery-item"><img src="images/karosel4.svg" alt="Community"></div>
+          <div class="gallery-item"><img src="images/karosel5.svg" alt="Community"></div>
+          <div class="gallery-item"><img src="images/karosel6.svg" alt="Community"></div>
+          <div class="gallery-item"><img src="images/karosel1.svg" alt="Community"></div>
+          <div class="gallery-item"><img src="images/karosel2.svg" alt="Community"></div>
+          <div class="gallery-item"><img src="images/karosel3.svg" alt="Community"></div>
+          <div class="gallery-item"><img src="images/karosel4.svg" alt="Community"></div>
+          <div class="gallery-item"><img src="images/karosel5.svg" alt="Community"></div>
+          <div class="gallery-item"><img src="images/karosel6.svg" alt="Community"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== REVIEWS SECTION ==================== -->
+  <section class="reviews-section">
+    <div class="container">
+      <div class="reviews-header">
+        <h2 class="main-title">STILL NOT CONVINCED?</h2>
+        <p class="main-description">The photos are like little snapshots of real moments, but If you're still curious about the LUMINA One, go check out the reviews! It's the best way to feel the real vibe.</p>
+      </div>
+      <div class="reviews-cta">
+        <a href="https://www.trustpilot.com" target="_blank" rel="noopener noreferrer"><button class="cta-button">OUR LOVELY REVIEWS</button></a>
+        <div class="trustpilot-logo"><img src="Iconer/TrustPilot.svg" alt="Trustpilot"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== NEWSLETTER SECTION ==================== -->
+  <section class="newsletter-section">
+    <div class="newsletter-container">
+      <div class="newsletter-image-wrapper"><img src="images/JoinNewsletter.png" alt="Lifestyle" class="newsletter-circle-image"></div>
+      <div class="newsletter-form-wrapper">
+        <h2 class="newsletter-title">JOIN OUR NEWSLETTER!</h2>
+        <p class="newsletter-description">Got fomo? Don't worry, we understand. Join our newsletter today so you won't miss a thing.</p>
+        <div class="newsletter-input-group">
+          <input type="email" class="newsletter-email-input" placeholder="ENTER EMAIL HERE...">
+          <button class="newsletter-submit-button">JOIN</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-col footer-brand">
+          <h3 class="footer-logo">LUMINA™</h3>
+          <div class="footer-contact">
+            <p>contact@lumina.dk</p>
+            <p>+45 12345678</p>
+            <p>Fiktionsvej 42, 2100 København Ø</p>
+            <p>CVR, 88887777</p>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-title">FAQ</h4>
+          <ul class="footer-links">
+            <li><a href="#">Delivery and Return</a></li>
+            <li><a href="#">Terms and Conditions</a></li>
+            <li><a href="#">About Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-title">PAYMENT METHODS</h4>
+          <div class="payment-icons"><img src="Iconer/Payment.svg" alt="Payment"></div>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-title">Subscribe To Newsletter</h4>
+          <div class="footer-newsletter">
+            <input type="email" placeholder="Enter email address">
+            <button>JOIN</button>
+          </div>
+          <div class="footer-social">
+            <h5>Follow Along in Our Universe of Tunes</h5>
+            <div class="social-icons">
+              <a href="https://www.instagram.com" target="_blank" class="footer-social-icon"><img src="Iconer/instagram.svg" alt="Instagram"></a>
+              <a href="https://www.tiktok.com" target="_blank" class="footer-social-icon"><img src="Iconer/tiktok.svg" alt="TikTok"></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>©2025 LUMINA | Alle rettigheder forbeholdes</p>
+        <p>Bemærk! Der er først indgået en bindende aftale, når vi har bekræftet din bestilling.</p>
+      </div>
+    </div>
+  </footer>
+  <script src="js/helpers.js"></script>
+  <script src="js/js.js"></script>
+  <script src="js/helpers.js"></script>
+  <script src="js/js.js"></script>
+</body>
+</html>
